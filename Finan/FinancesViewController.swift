@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FinancesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
