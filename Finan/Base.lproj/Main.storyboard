@@ -19,6 +19,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-vX-dzH">
                                 <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="aVl-vB-EMt" id="qdb-gg-HSS"/>
+                                    <outlet property="delegate" destination="aVl-vB-EMt" id="lJr-hc-a1f"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l0y-aI-eoz"/>
@@ -288,6 +292,7 @@
         <!--Settings-->
         <scene sceneID="Ayv-UC-Zzp">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i47-dh-ZGr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FZq-GB-eYw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="A4h-cy-IWY"/>
                     <toolbarItems/>
@@ -300,7 +305,6 @@
                         <segue destination="WX6-p5-L9v" kind="relationship" relationship="rootViewController" id="Hzn-Gi-lqR"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i47-dh-ZGr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1482.608695652174" y="166.74107142857142"/>
         </scene>
