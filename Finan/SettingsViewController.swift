@@ -8,22 +8,31 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
+    @IBOutlet weak var settingsTableView: UITableView!
+    
+    var names: [String] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Settings"
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+    }
+}
 
-        // Do any additional setup after loading the view.
+
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return names.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = names[indexPath.row]
+        return cell
     }
-    */
-
+    
 }
