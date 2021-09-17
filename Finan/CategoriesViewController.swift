@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class CategoriesViewController: UIViewController {
     
-// MARK: - Properties
-    private var categories: [String] = []
+    // MARK: - Properties
+    private var categories: [NSManagedObject] = []
     
     
-// MARK: - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var categoriesTableView: UITableView!
     
     override func viewDidLoad() {
@@ -38,7 +39,7 @@ class CategoriesViewController: UIViewController {
                 return
             }
             
-            self.categories.append(nameToSave)
+            self.save(name: nameToSave)
             self.categoriesTableView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -47,6 +48,22 @@ class CategoriesViewController: UIViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+    }
+    
+    func save(name: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Categories", in: managedContext)!
+        let categoryName = NSManagedObject(entity: entity, insertInto: managedContext)
+        categoryName.setValue(name, forKeyPath: "categoryName")
+        do {
+            try managedContext.save()
+            categories.append(categoryName)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 }
 
@@ -57,11 +74,12 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let categories = categories[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = categories[indexPath.row]
+        cell.textLabel?.text = categories.value(forKey: "categoryName") as? String
         
         return cell
     }
-        
-        
-    }
+    
+    
+}
