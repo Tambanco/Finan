@@ -8,6 +8,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Categories View Controller-->
+        <scene sceneID="doG-bY-qqE">
+            <objects>
+                <viewController id="aVl-vB-EMt" customClass="CategoriesViewController" customModule="Finan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vb7-c5-MCh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-vX-dzH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l0y-aI-eoz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bmM-vX-dzH" firstAttribute="top" secondItem="l0y-aI-eoz" secondAttribute="top" id="0Vk-EH-BBW"/>
+                            <constraint firstItem="l0y-aI-eoz" firstAttribute="trailing" secondItem="bmM-vX-dzH" secondAttribute="trailing" id="CEA-y6-cCC"/>
+                            <constraint firstItem="bmM-vX-dzH" firstAttribute="leading" secondItem="l0y-aI-eoz" secondAttribute="leading" id="JKy-Fg-9rN"/>
+                            <constraint firstItem="l0y-aI-eoz" firstAttribute="bottom" secondItem="bmM-vX-dzH" secondAttribute="bottom" id="L34-eE-Ch7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0dj-70-hbN"/>
+                    <connections>
+                        <outlet property="categoriesTableView" destination="bmM-vX-dzH" id="dOI-JG-qKX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qXc-Ky-K3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-504" y="930"/>
+        </scene>
         <!--My Finances-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -19,12 +50,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Oi-OX-0Gu" userLabel="Categories Stack View">
                                 <rect key="frame" x="20" y="87" width="374" height="178"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhZ-ZW-RV8">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Gn-ci-wcL">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="37"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категории" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhZ-ZW-RV8" userLabel="Категории">
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="37"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7O-uZ-jqM">
+                                                <rect key="frame" x="166" y="0.0" width="208" height="37"/>
+                                                <state key="normal" title="Button" image="plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="addButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Cd-KF-nHF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="j0L-Pl-F5E">
                                         <rect key="frame" x="0.0" y="47" width="374" height="37"/>
                                         <subviews>
@@ -161,6 +204,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Finances" image="creditcard" catalog="system" id="eOx-vK-lJ5"/>
+                    <connections>
+                        <outlet property="addButton" destination="m7O-uZ-jqM" id="nbP-kT-1Vl"/>
+                        <segue destination="aVl-vB-EMt" kind="show" identifier="showCategories" id="fHz-v2-GqE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -260,6 +307,7 @@
     <resources>
         <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="rectangle.3.offgrid" catalog="system" width="128" height="81"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

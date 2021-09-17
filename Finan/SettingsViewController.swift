@@ -20,6 +20,14 @@ class SettingsViewController: UIViewController {
         title = "Settings"
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
+        let logoutBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logoutUser))
+        self.navigationItem.rightBarButtonItem  = logoutBarButtonItem
+        
+        
+    }
+    
+    @objc func logoutUser() {
+        print("fff")
     }
 }
 
