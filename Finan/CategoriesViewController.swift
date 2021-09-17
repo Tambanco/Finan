@@ -101,7 +101,6 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let category = categories[indexPath.row]
@@ -115,6 +114,4 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-    
-    
 }

@@ -12,10 +12,11 @@ class FinanViewController: UIViewController {
     
     // MARK: - Properties
     var categories: [NSManagedObject] = []
-    var categoriesArr = ["Питание", "ЖКХ", "Досуг"]
+    var categoriesArr: [String] = ["Питание"]
     
     // MARK: - Outlets
     @IBOutlet weak var addButton: UIButton!
+    
     
     
     // MARK: - App life cycle
@@ -27,6 +28,14 @@ class FinanViewController: UIViewController {
         buttonBuilder()
     }
     
+    override func viewWillLayoutSubviews() {
+        self.view.addSubview(CategoriesView.init(frame: CGRect(x: 20,
+                                                               y: 100,
+                                                               width: self.view.frame.width - 40,
+                                                               height: 200)))
+    }
+    
+    // MARK: - Methods
     @objc func buttonAction(sender: UIButton!) {
         print("Button tapped")
     }
@@ -35,6 +44,7 @@ class FinanViewController: UIViewController {
         performSegue(withIdentifier: "showCategories", sender: nil)
     }
     
+    // MARK: - Button builder
     private func buttonBuilder() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -46,18 +56,14 @@ class FinanViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-        for idx in 0..<categoriesArr.count {
-            let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-            button.backgroundColor = .gray
-            button.setTitle(categoriesArr[idx], for: .normal)
-            button.layer.cornerRadius = 10.0
-            self.view.addSubview(button)
-        }
-//        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-//        button.backgroundColor = .green
-//        button.setTitle(categoriesArr.first, for: .normal)
-//        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-//
-//        self.view.addSubview(button)
+//        for idx in 0..<categoriesArr.count {
+//            let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+//            button.backgroundColor = .gray
+//            button.setTitle(categoriesArr[idx], for: .normal)
+//            button.layer.cornerRadius = 10.0
+//            button.layer.shadowOpacity = 0.5
+//            button.layer.shadowRadius = 10
+//            self.view.addSubview(button)
+
     }
 }
