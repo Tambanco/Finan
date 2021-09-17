@@ -11,7 +11,7 @@ import CoreData
 class CategoriesViewController: UIViewController {
     
     // MARK: - Properties
-    private var categories: [NSManagedObject] = []
+    var categories: [NSManagedObject] = []
     
     
     // MARK: - Outlets
@@ -32,8 +32,7 @@ class CategoriesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else { return }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Categories")
         
@@ -48,8 +47,8 @@ class CategoriesViewController: UIViewController {
     @objc func addCategories() {
         let alert = UIAlertController(title: "New Categories", message: "Add a new category", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
-        guard let textField = alert.textFields?.first,
-              let nameToSave = textField.text else {
+            guard let textField = alert.textFields?.first,
+                  let nameToSave = textField.text else {
                 
                 return
             }
