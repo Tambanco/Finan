@@ -11,13 +11,13 @@
         <!--Categories View Controller-->
         <scene sceneID="doG-bY-qqE">
             <objects>
-                <viewController id="aVl-vB-EMt" customClass="CategoriesViewController" customModule="Finan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoriesViewController" id="aVl-vB-EMt" customClass="CategoriesViewController" customModule="Finan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vb7-c5-MCh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-vX-dzH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXc-Ky-K3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504" y="930"/>
+            <point key="canvasLocation" x="405.79710144927537" y="929.46428571428567"/>
         </scene>
         <!--My Finances-->
         <scene sceneID="tne-QT-ifu">
@@ -61,6 +61,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7O-uZ-jqM">
                                                 <rect key="frame" x="166" y="0.0" width="208" height="37"/>
+                                                <color key="tintColor" red="0.64313725489999995" green="0.67450980390000004" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button" image="plus" catalog="system"/>
                                                 <connections>
                                                     <action selector="addButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Cd-KF-nHF"/>
@@ -206,7 +207,7 @@
                     <tabBarItem key="tabBarItem" title="My Finances" image="creditcard" catalog="system" id="eOx-vK-lJ5"/>
                     <connections>
                         <outlet property="addButton" destination="m7O-uZ-jqM" id="nbP-kT-1Vl"/>
-                        <segue destination="aVl-vB-EMt" kind="show" identifier="showCategories" id="fHz-v2-GqE"/>
+                        <segue destination="dVU-Ea-rnl" kind="show" identifier="showCategories" id="fHz-v2-GqE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -302,6 +303,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i47-dh-ZGr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1482.608695652174" y="166.74107142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SY8-bG-TBC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dVU-Ea-rnl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Re8-Ia-pW1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s4m-iA-bQh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aVl-vB-EMt" kind="relationship" relationship="rootViewController" id="Bja-Ta-BMY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzA-hT-d3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-504.34782608695656" y="929.46428571428567"/>
         </scene>
     </scenes>
     <resources>

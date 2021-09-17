@@ -19,6 +19,6 @@ class FinanViewController: UIViewController {
 
 
     @IBAction func addButtonAction(_ sender: UIButton) {
-        print("fdfdf")
+        performSegue(withIdentifier: "showCategories", sender: nil)
     }
 }
