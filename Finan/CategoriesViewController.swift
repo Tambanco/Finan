@@ -17,6 +17,8 @@ class CategoriesViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var categoriesTableView: UITableView!
     
+// MARK: - App life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,12 +27,25 @@ class CategoriesViewController: UIViewController {
         
         let logoutBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addCategories))
         self.navigationItem.rightBarButtonItem  = logoutBarButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else { return }
+          let managedContext = appDelegate.persistentContainer.viewContext
+          let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Categories")
+
+          do {
+            categories = try managedContext.fetch(fetchRequest)
+          } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+          }
     }
     
     
     @objc func addCategories() {
-        
         let alert = UIAlertController(title: "New Categories", message: "Add a new category", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
             guard let textField = alert.textFields?.first,
@@ -42,6 +57,7 @@ class CategoriesViewController: UIViewController {
             self.save(name: nameToSave)
             self.categoriesTableView.reloadData()
         }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addTextField()
         alert.addAction(saveAction)
@@ -51,13 +67,12 @@ class CategoriesViewController: UIViewController {
     }
     
     func save(name: String) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Categories", in: managedContext)!
         let categoryName = NSManagedObject(entity: entity, insertInto: managedContext)
         categoryName.setValue(name, forKeyPath: "categoryName")
+        
         do {
             try managedContext.save()
             categories.append(categoryName)
