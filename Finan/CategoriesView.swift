@@ -13,8 +13,7 @@ class CategoriesView: UIView {
     private var categoryLabel: UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32)
-        label.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.textAlignment = .left
         label.text = "Categories"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +21,7 @@ class CategoriesView: UIView {
     }()
     
     private var setCategoryButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 20, y: 20, width: 50, height: 50))
+        let button = UIButton(frame: CGRect(x: 290, y: 20, width: 50, height: 50))
         button.backgroundColor = .white
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.layer.cornerRadius = 10.0
@@ -48,14 +47,17 @@ class CategoriesView: UIView {
                              leading: leadingAnchor,
                              bottom: nil,
                              trailing: trailingAnchor,
-                             padding: UIEdgeInsets(top: 100, left: 10, bottom: 0, right: 10))
+                             padding: UIEdgeInsets(top: 20,
+                                                   left: 20,
+                                                   bottom: 0,
+                                                   right: 20))
         
-        setCategoryButton.anchor(top: topAnchor,
-                                 leading: leadingAnchor,
-                                 bottom: nil,
-                                 trailing: trailingAnchor,
-                                 padding: UIEdgeInsets(top: 100, left: 20, bottom: 0, right: 20))
-        
+//        setCategoryButton.anchor(top: topAnchor,
+//                                 leading: leadingAnchor,
+//                                 bottom: nil,
+//                                 trailing: trailingAnchor,
+//                                 padding: UIEdgeInsets(top: 100, left: 20, bottom: 0, right: 20))
+//
 //        setCategoryButton.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
 //        setCategoryButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
 //        setCategoryButton.leadingAnchor.constraint(equalTo: categoryLabel.trailingAnchor, constant: 8).isActive = true
