@@ -17,7 +17,7 @@ class CategoriesViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var categoriesTableView: UITableView!
     
-// MARK: - App life cycle
+    // MARK: - App life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,23 +33,23 @@ class CategoriesViewController: UIViewController {
         super.viewWillAppear(animated)
         
         guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else { return }
-          let managedContext = appDelegate.persistentContainer.viewContext
-          let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Categories")
-
-          do {
+                UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Categories")
+        
+        do {
             categories = try managedContext.fetch(fetchRequest)
-          } catch let error as NSError {
+        } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
-          }
+        }
     }
     
     
     @objc func addCategories() {
         let alert = UIAlertController(title: "New Categories", message: "Add a new category", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
-            guard let textField = alert.textFields?.first,
-                  let nameToSave = textField.text else {
+        guard let textField = alert.textFields?.first,
+              let nameToSave = textField.text else {
                 
                 return
             }
@@ -94,6 +94,27 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = categories.value(forKey: "categoryName") as? String
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let category = categories[indexPath.row]
+        managedContext.delete(category)
+        categories.remove(at: indexPath.row)
+        categoriesTableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     
