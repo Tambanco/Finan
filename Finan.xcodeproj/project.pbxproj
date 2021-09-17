@@ -16,6 +16,7 @@
 		4906707A26F0FB5400011E3E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906707926F0FB5400011E3E /* SettingsViewController.swift */; };
 		4906708A26F102F400011E3E /* FinanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906708926F102F400011E3E /* FinanViewController.swift */; };
 		4906708C26F4A6E600011E3E /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906708B26F4A6E600011E3E /* CategoriesViewController.swift */; };
+		4906708F26F4AF7C00011E3E /* Categories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4906708D26F4AF7C00011E3E /* Categories.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4906707926F0FB5400011E3E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4906708926F102F400011E3E /* FinanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanViewController.swift; sourceTree = "<group>"; };
 		4906708B26F4A6E600011E3E /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		4906708E26F4AF7C00011E3E /* Categories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Categories.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				4906707726F0FA0000011E3E /* StatViewController.swift */,
 				4906707926F0FB5400011E3E /* SettingsViewController.swift */,
 				4906708B26F4A6E600011E3E /* CategoriesViewController.swift */,
+				4906708D26F4AF7C00011E3E /* Categories.xcdatamodeld */,
 				4906706926F0F77000011E3E /* Main.storyboard */,
 				4906706C26F0F77100011E3E /* Assets.xcassets */,
 				4906706E26F0F77100011E3E /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 				4906708A26F102F400011E3E /* FinanViewController.swift in Sources */,
 				4906707A26F0FB5400011E3E /* SettingsViewController.swift in Sources */,
 				4906706626F0F77000011E3E /* SceneDelegate.swift in Sources */,
+				4906708F26F4AF7C00011E3E /* Categories.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +357,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4906708D26F4AF7C00011E3E /* Categories.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4906708E26F4AF7C00011E3E /* Categories.xcdatamodel */,
+			);
+			currentVersion = 4906708E26F4AF7C00011E3E /* Categories.xcdatamodel */;
+			path = Categories.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4906705826F0F77000011E3E /* Project object */;
 }

@@ -9,11 +9,11 @@ import UIKit
 
 class CategoriesViewController: UIViewController {
     
-    // MARK: - Properties
+// MARK: - Properties
     private var categories: [String] = []
     
     
-    // MARK: - Outlets
+// MARK: - Outlets
     @IBOutlet weak var categoriesTableView: UITableView!
     
     override func viewDidLoad() {
