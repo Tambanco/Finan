@@ -10,14 +10,14 @@ import CoreData
 
 class CategoriesViewController: UIViewController {
     
-    // MARK: - Properties
+// MARK: - Properties
     var categories: [NSManagedObject] = []
     
     
-    // MARK: - Outlets
+// MARK: - Outlets
     @IBOutlet weak var categoriesTableView: UITableView!
     
-    // MARK: - App life cycle
+// MARK: - App life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

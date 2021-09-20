@@ -17,6 +17,8 @@
 		4906708A26F102F400011E3E /* FinanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906708926F102F400011E3E /* FinanViewController.swift */; };
 		4906708C26F4A6E600011E3E /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906708B26F4A6E600011E3E /* CategoriesViewController.swift */; };
 		4906708F26F4AF7C00011E3E /* Categories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4906708D26F4AF7C00011E3E /* Categories.xcdatamodeld */; };
+		4977E9C626F8D56200DC5DC4 /* FinanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977E9C526F8D56200DC5DC4 /* FinanView.swift */; };
+		4977E9C826F8D98200DC5DC4 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977E9C726F8D98200DC5DC4 /* PriceView.swift */; };
 		49F9D34E26F50FBA00A5C3CC /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9D34D26F50FBA00A5C3CC /* CategoriesView.swift */; };
 		49F9D35026F510D700A5C3CC /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9D34F26F510D700A5C3CC /* Constraints.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +36,8 @@
 		4906708926F102F400011E3E /* FinanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanViewController.swift; sourceTree = "<group>"; };
 		4906708B26F4A6E600011E3E /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		4906708E26F4AF7C00011E3E /* Categories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Categories.xcdatamodel; sourceTree = "<group>"; };
+		4977E9C526F8D56200DC5DC4 /* FinanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanView.swift; sourceTree = "<group>"; };
+		4977E9C726F8D98200DC5DC4 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		49F9D34D26F50FBA00A5C3CC /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		49F9D34F26F510D700A5C3CC /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,11 +74,10 @@
 			children = (
 				4906706326F0F77000011E3E /* AppDelegate.swift */,
 				4906706526F0F77000011E3E /* SceneDelegate.swift */,
-				4906708926F102F400011E3E /* FinanViewController.swift */,
+				49ABF01926F89955001A282A /* FinanViewController */,
 				4906707726F0FA0000011E3E /* StatViewController.swift */,
 				4906707926F0FB5400011E3E /* SettingsViewController.swift */,
 				4906708B26F4A6E600011E3E /* CategoriesViewController.swift */,
-				49F9D34D26F50FBA00A5C3CC /* CategoriesView.swift */,
 				49F9D35126F510DC00A5C3CC /* Helpers */,
 				4906708D26F4AF7C00011E3E /* Categories.xcdatamodeld */,
 				4906706926F0F77000011E3E /* Main.storyboard */,
@@ -83,6 +86,17 @@
 				4906707126F0F77100011E3E /* Info.plist */,
 			);
 			path = Finan;
+			sourceTree = "<group>";
+		};
+		49ABF01926F89955001A282A /* FinanViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4906708926F102F400011E3E /* FinanViewController.swift */,
+				4977E9C526F8D56200DC5DC4 /* FinanView.swift */,
+				49F9D34D26F50FBA00A5C3CC /* CategoriesView.swift */,
+				4977E9C726F8D98200DC5DC4 /* PriceView.swift */,
+			);
+			path = FinanViewController;
 			sourceTree = "<group>";
 		};
 		49F9D35126F510DC00A5C3CC /* Helpers */ = {
@@ -166,10 +180,12 @@
 				49F9D34E26F50FBA00A5C3CC /* CategoriesView.swift in Sources */,
 				4906706426F0F77000011E3E /* AppDelegate.swift in Sources */,
 				4906707826F0FA0000011E3E /* StatViewController.swift in Sources */,
+				4977E9C826F8D98200DC5DC4 /* PriceView.swift in Sources */,
 				4906708C26F4A6E600011E3E /* CategoriesViewController.swift in Sources */,
 				49F9D35026F510D700A5C3CC /* Constraints.swift in Sources */,
 				4906708A26F102F400011E3E /* FinanViewController.swift in Sources */,
 				4906707A26F0FB5400011E3E /* SettingsViewController.swift in Sources */,
+				4977E9C626F8D56200DC5DC4 /* FinanView.swift in Sources */,
 				4906706626F0F77000011E3E /* SceneDelegate.swift in Sources */,
 				4906708F26F4AF7C00011E3E /* Categories.xcdatamodeld in Sources */,
 			);
