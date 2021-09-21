@@ -10,7 +10,7 @@ import UIKit
 
 class CategoriesView: UIView {
 
-    private var categoryLabel: UILabel = {
+    lazy var categoryLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -21,36 +21,41 @@ class CategoriesView: UIView {
         return label
     }()
     
-    private var addViewLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 32)
-        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        label.textAlignment = .left
-        label.text = "Add"
-        label.layer.cornerRadius = 10.0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private var setCategoryButton: UIButton = {
+        let button = UIButton(frame: CGRect())
+        button.backgroundColor = .white
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.layer.cornerRadius = 10.0
+        button.layer.shadowOpacity = 0.3
+        button.layer.shadowRadius = 10
+        button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        self.backgroundColor = UIColor.init(rgb: 0x4B6587)
         self.layer.cornerRadius = 10.0
         
         addSubview(categoryLabel)
-        addSubview(addViewLabel)
+        addSubview(setCategoryButton)
         
         categoryLabel.anchor(top: topAnchor,
                              leading: leadingAnchor,
                              bottom: nil,
-                             trailing: addViewLabel.leadingAnchor,
-                             padding: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+                             trailing: setCategoryButton.leadingAnchor,
+                             padding: UIEdgeInsets(top: 10,
+                                                   left: 10,
+                                                   bottom: 10,
+                                                   right: 10))
         
-        addViewLabel.anchor(top: topAnchor,
+        setCategoryButton.anchor(top: topAnchor,
                             leading: categoryLabel.trailingAnchor,
                             bottom: nil, trailing: trailingAnchor,
-                            padding: UIEdgeInsets(top: 10, left: 10,
+                            padding: UIEdgeInsets(top: 10,
+                                                  left: 10,
                                                   bottom: 10,
                                                   right: 10))
     }

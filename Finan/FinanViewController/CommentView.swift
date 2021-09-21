@@ -1,5 +1,5 @@
 //
-//  PriceView.swift
+//  CommentView.swift
 //  Finan
 //
 //  Created by tambanco 🥳 on 20.09.2021.
@@ -7,20 +7,20 @@
 
 import UIKit
 
-class PriceView: UIView {
+class CommentView: UIView {
     
-    lazy var priceLabel: UILabel = {
+    lazy var commentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.textAlignment = .left
-        label.text = "Price"
+        label.text = "Comment"
         label.layer.cornerRadius = 10.0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var priceInput: UITextField = {
+    lazy var commentInput: UITextField = {
         let textField =  UITextField(frame: CGRect())
         textField.placeholder = "Enter price here"
         textField.font = UIFont.systemFont(ofSize: 15)
@@ -40,19 +40,19 @@ class PriceView: UIView {
         self.backgroundColor = UIColor.init(rgb: 0x4B6587)
         self.layer.cornerRadius = 10.0
         
-        addSubview(priceLabel)
-        addSubview(priceInput)
+        addSubview(commentLabel)
+        addSubview(commentInput)
         
-        priceLabel.anchor(top: topAnchor,
+        commentLabel.anchor(top: topAnchor,
                           leading: leadingAnchor,
-                          bottom: priceInput.topAnchor,
+                          bottom: commentInput.topAnchor,
                           trailing: trailingAnchor,
                           padding: UIEdgeInsets(top: 10,
                                                 left: 10,
                                                 bottom: 0,
                                                 right: 10))
         
-        priceInput.anchor(top: priceLabel.bottomAnchor,
+        commentInput.anchor(top: commentLabel.bottomAnchor,
                           leading: leadingAnchor,
                           bottom: bottomAnchor,
                           trailing: trailingAnchor,
@@ -65,5 +65,4 @@ class PriceView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
