@@ -8,23 +8,20 @@
 import UIKit
 import CoreData
 
-class FinanViewController: UIViewController {
+final class FinanViewController: UIViewController {
     
     // MARK: - Properties
     var categories: [NSManagedObject] = []
     var categoriesArr: [String] = ["Питание"]
     
-    
     // MARK: - App life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.view.addSubview(FinanView.init(frame: CGRect(x: 0,
-                                                          y: 0,
-                                                          width: self.view.frame.width,
-                                                          height: self.view.frame.height)))
+        
+        view.addSubview(FinanView.init(frame: CGRect(x: 0,
+                                                     y: 0,
+                                                     width: view.frame.width,
+                                                     height: view.frame.height)))
     }
     
     // MARK: - Button builder
@@ -39,14 +36,14 @@ class FinanViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-        //        for idx in 0..<categoriesArr.count {
-        //            let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-        //            button.backgroundColor = .gray
-        //            button.setTitle(categoriesArr[idx], for: .normal)
-        //            button.layer.cornerRadius = 10.0
-        //            button.layer.shadowOpacity = 0.5
-        //            button.layer.shadowRadius = 10
-        //            self.view.addSubview(button)
-        //        }
+                for idx in 0..<categoriesArr.count {
+                    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+                    button.backgroundColor = .gray
+                    button.setTitle(categoriesArr[idx], for: .normal)
+                    button.layer.cornerRadius = 10.0
+                    button.layer.shadowOpacity = 0.5
+                    button.layer.shadowRadius = 10
+                    self.view.addSubview(button)
+                }
     }
 }

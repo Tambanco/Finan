@@ -2,22 +2,57 @@
 //  FinanView.swift
 //  Finan
 //
-//  Created by tambanco 🥳 on 20.09.2021.
+//  Created by tambanco 🥳 on 23.09.2021.
 //
 
+import Foundation
 import UIKit
 
-class FinanView: UIView {
+final class FinanView: UIView {
+    
+    var categoriesView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
+    var priceView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    var commentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.init(rgb: 0xF7F6F2)
+        addSubview(categoriesView)
+        addSubview(priceView)
+        addSubview(commentView)
         
-        addSubview(CategoriesView.init(frame: CGRect(x: 20, y: 50, width: self.frame.width - 40, height: 200)))
-        addSubview(PriceView.init(frame: CGRect(x: 20, y: 280, width: self.frame.width - 40, height: 150)))
-        addSubview(CommentView.init(frame: CGRect(x: 20, y: 450, width: self.frame.width - 40, height: 150)))
-
+        categoriesView.topAnchor.constraint(equalTo: topAnchor, constant: 100).isActive = true
+        categoriesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        categoriesView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        categoriesView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        priceView.topAnchor.constraint(equalTo: categoriesView.bottomAnchor, constant: 50).isActive = true
+        priceView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        priceView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        priceView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        commentView.topAnchor.constraint(equalTo: priceView.bottomAnchor, constant: 50).isActive = true
+        commentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        commentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        commentView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
     }
     
     required init?(coder: NSCoder) {
