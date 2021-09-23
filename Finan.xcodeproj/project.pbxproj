@@ -82,8 +82,8 @@
 				4906706326F0F77000011E3E /* AppDelegate.swift */,
 				4906706526F0F77000011E3E /* SceneDelegate.swift */,
 				49ABF01926F89955001A282A /* FinanViewController */,
-				4906707726F0FA0000011E3E /* StatViewController.swift */,
-				4906707926F0FB5400011E3E /* SettingsViewController.swift */,
+				49C86A9926FD1D7700FD48C7 /* StatViewController */,
+				49C86A9A26FD1D8400FD48C7 /* SettingsViewController */,
 				4906708B26F4A6E600011E3E /* CategoriesViewController.swift */,
 				49F9D35126F510DC00A5C3CC /* Helpers */,
 				4906708D26F4AF7C00011E3E /* Categories.xcdatamodeld */,
@@ -102,6 +102,22 @@
 				49A645EF26FCE10300A90C01 /* FinanView.swift */,
 			);
 			path = FinanViewController;
+			sourceTree = "<group>";
+		};
+		49C86A9926FD1D7700FD48C7 /* StatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4906707726F0FA0000011E3E /* StatViewController.swift */,
+			);
+			path = StatViewController;
+			sourceTree = "<group>";
+		};
+		49C86A9A26FD1D8400FD48C7 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4906707926F0FB5400011E3E /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
 			sourceTree = "<group>";
 		};
 		49F9D35126F510DC00A5C3CC /* Helpers */ = {

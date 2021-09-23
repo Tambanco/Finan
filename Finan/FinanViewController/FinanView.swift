@@ -50,6 +50,7 @@ final class FinanView: UIView {
     private var setCategoryButton: UIButton = {
         let button = UIButton(frame: CGRect())
         button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -92,7 +93,7 @@ final class FinanView: UIView {
     
     lazy var commentInput: UITextField = {
         let textField =  UITextField(frame: CGRect())
-        textField.placeholder = "Enter price here"
+        textField.placeholder = "Enter comment here"
         textField.font = UIFont.systemFont(ofSize: 15)
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.autocorrectionType = UITextAutocorrectionType.no
@@ -107,6 +108,8 @@ final class FinanView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+        
         overlayCategoriesView()
         overlayCategoriesViewContent()
         
@@ -115,6 +118,11 @@ final class FinanView: UIView {
         
         overlayCommentsView()
         overlayCommentsViewContent()
+    }
+    
+    // MARK: - Button methods
+    @objc func setCategories() {
+        print("dfddg")
     }
     
     // MARK: - Categories view content
