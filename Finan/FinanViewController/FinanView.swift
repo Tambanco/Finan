@@ -54,16 +54,71 @@ final class FinanView: UIView {
         return button
     }()
     
+    lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 32)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        label.textAlignment = .left
+        label.text = "Price"
+        label.layer.cornerRadius = 10.0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var priceInput: UITextField = {
+        let textField =  UITextField(frame: CGRect())
+        textField.placeholder = "Enter price here"
+        textField.font = UIFont.systemFont(ofSize: 15)
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
+        textField.autocorrectionType = UITextAutocorrectionType.no
+        textField.keyboardType = UIKeyboardType.default
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    lazy var commentLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 32)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        label.textAlignment = .left
+        label.text = "Comment"
+        label.layer.cornerRadius = 10.0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var commentInput: UITextField = {
+        let textField =  UITextField(frame: CGRect())
+        textField.placeholder = "Enter price here"
+        textField.font = UIFont.systemFont(ofSize: 15)
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
+        textField.autocorrectionType = UITextAutocorrectionType.no
+        textField.keyboardType = UIKeyboardType.default
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         overlayCategoriesView()
+        overlayCategoriesViewContent()
+        
         overlayPriceView()
+        overlayPriceViewContent()
+        
         overlayCommentsView()
-        overlaySecondLayer()
+        overlayCommentsViewContent()
     }
     
-    func overlaySecondLayer() {
+    // MARK: - Categories view content
+    func overlayCategoriesViewContent() {
         categoriesView.addSubview(categoryLabel)
         categoriesView.addSubview(setCategoryButton)
         
@@ -88,6 +143,22 @@ final class FinanView: UIView {
         
     }
     
+    // MARK: - Price view content
+    func overlayPriceViewContent() {
+        priceView.addSubview(priceLabel)
+        priceView.addSubview(priceInput)
+        
+        priceLabel.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 10).isActive = true
+        priceLabel.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 10).isActive = true
+        priceLabel.trailingAnchor.constraint(equalTo: priceView.trailingAnchor, constant: -10).isActive = true
+        priceLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        priceInput.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10).isActive = true
+        priceInput.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 10).isActive = true
+        priceInput.trailingAnchor.constraint(equalTo: priceView.trailingAnchor, constant: -10).isActive = true
+        priceInput.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    }
+    
     func overlayPriceView() {
         addSubview(priceView)
         
@@ -95,6 +166,23 @@ final class FinanView: UIView {
         priceView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         priceView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
         priceView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    }
+    
+    
+    // MARK: - Comments view content
+    func overlayCommentsViewContent() {
+        commentView.addSubview(commentLabel)
+        commentView.addSubview(commentInput)
+        
+        commentLabel.topAnchor.constraint(equalTo: commentView.topAnchor, constant: 10).isActive = true
+        commentLabel.leadingAnchor.constraint(equalTo: commentView.leadingAnchor, constant: 10).isActive = true
+        commentLabel.trailingAnchor.constraint(equalTo: commentView.trailingAnchor, constant: -10).isActive = true
+        commentLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        commentInput.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 10).isActive = true
+        commentInput.leadingAnchor.constraint(equalTo: commentView.leadingAnchor, constant: 10).isActive = true
+        commentInput.trailingAnchor.constraint(equalTo: commentView.trailingAnchor, constant: -10).isActive = true
+        commentInput.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     func overlayCommentsView() {
