@@ -11,6 +11,8 @@ import CoreData
 final class FinanViewController: UIViewController {
     
     // MARK: - Properties
+    let finanView = FinanView()
+    
     var categories: [NSManagedObject] = []
     var categoriesArr: [String] = ["Питание"]
     
@@ -18,10 +20,13 @@ final class FinanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(FinanView.init(frame: CGRect(x: 0,
-                                                     y: 0,
-                                                     width: view.frame.width,
-                                                     height: view.frame.height)))
+        finanView.delegate = self
+        
+        view.addSubview(finanView)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        finanView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
     }
     
     // MARK: - Button builder
@@ -36,14 +41,21 @@ final class FinanViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-                for idx in 0..<categoriesArr.count {
-                    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-                    button.backgroundColor = .gray
-                    button.setTitle(categoriesArr[idx], for: .normal)
-                    button.layer.cornerRadius = 10.0
-                    button.layer.shadowOpacity = 0.5
-                    button.layer.shadowRadius = 10
-                    self.view.addSubview(button)
-                }
+//                for idx in 0..<categoriesArr.count {
+//                    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+//                    button.backgroundColor = .gray
+//                    button.setTitle(categoriesArr[idx], for: .normal)
+//                    button.layer.cornerRadius = 10.0
+//                    button.layer.shadowOpacity = 0.5
+//                    button.layer.shadowRadius = 10
+//                    self.view.addSubview(button)
+//                }
+    }
+}
+
+extension FinanViewController: FinanViewDelegate {
+    func finanViewAddCategoriesButtonClicked() {
+        print(#function)
+        performSegue(withIdentifier: "showCategories", sender: nil)
     }
 }

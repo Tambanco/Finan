@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
+protocol FinanViewDelegate: AnyObject {
+    func finanViewAddCategoriesButtonClicked()
+}
+
 final class FinanView: UIView {
+    // MARK: - Properties
+    weak var delegate: FinanViewDelegate?
     
     // MARK: - First layer
     var categoriesView: UIView = {
@@ -36,7 +42,7 @@ final class FinanView: UIView {
     }()
     
     // MARK: - SecondLayer
-    lazy var categoryLabel: UILabel = {
+    var categoryLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Constants.titleFont)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -47,15 +53,15 @@ final class FinanView: UIView {
         return label
     }()
     
-    private var setCategoryButton: UIButton = {
+    var setCategoryButton: UIButton = {
         let button = UIButton(frame: CGRect())
         button.setImage(UIImage(systemName: "plus"), for: .normal)
-        button.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
+        button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    lazy var priceLabel: UILabel = {
+    var priceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -66,7 +72,7 @@ final class FinanView: UIView {
         return label
     }()
     
-    lazy var priceInput: UITextField = {
+    var priceInput: UITextField = {
         let textField =  UITextField(frame: CGRect())
         textField.placeholder = "Enter price here"
         textField.font = UIFont.systemFont(ofSize: 15)
@@ -80,7 +86,7 @@ final class FinanView: UIView {
         return textField
     }()
     
-    lazy var commentLabel: UILabel = {
+    var commentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 32)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -91,7 +97,7 @@ final class FinanView: UIView {
         return label
     }()
     
-    lazy var commentInput: UITextField = {
+    var commentInput: UITextField = {
         let textField =  UITextField(frame: CGRect())
         textField.placeholder = "Enter comment here"
         textField.font = UIFont.systemFont(ofSize: 15)
@@ -110,6 +116,8 @@ final class FinanView: UIView {
         
         backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         
+        setCategoryButton.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
+        
         overlayCategoriesView()
         overlayCategoriesViewContent()
         
@@ -121,9 +129,8 @@ final class FinanView: UIView {
     }
     
     // MARK: - Button methods
-    @objc func setCategories() {
-        print("df")
-        
+    @objc private func setCategories() {
+        self.delegate?.finanViewAddCategoriesButtonClicked()
     }
     
     // MARK: - Categories view content
