@@ -122,7 +122,8 @@ final class FinanView: UIView {
     
     // MARK: - Button methods
     @objc func setCategories() {
-        print("dfddg")
+        print("df")
+        
     }
     
     // MARK: - Categories view content
