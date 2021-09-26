@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 protocol FinanViewDelegate: AnyObject {
     func finanViewAddCategoriesButtonClicked()
@@ -15,6 +16,8 @@ protocol FinanViewDelegate: AnyObject {
 final class FinanView: UIView {
     // MARK: - Properties
     weak var delegate: FinanViewDelegate?
+    var categories: [NSManagedObject] = []
+    var categoriesArr: [String] = ["Питание"]
     
     // MARK: - First layer
     var categoriesView: UIView = {
@@ -57,6 +60,18 @@ final class FinanView: UIView {
         let button = UIButton(frame: CGRect())
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        button.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    var button: UIButton = {
+        let button = UIButton(frame: CGRect())
+        button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        button.backgroundColor = .gray
+        button.layer.cornerRadius = 10.0
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -116,7 +131,7 @@ final class FinanView: UIView {
         
         backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         
-        setCategoryButton.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
+        button.setTitle(categoriesArr.first, for: .normal)
         
         overlayCategoriesView()
         overlayCategoriesViewContent()
@@ -137,6 +152,7 @@ final class FinanView: UIView {
     func overlayCategoriesViewContent() {
         categoriesView.addSubview(categoryLabel)
         categoriesView.addSubview(setCategoryButton)
+        categoriesView.addSubview(button)
         
         categoryLabel.topAnchor.constraint(equalTo: categoriesView.topAnchor, constant: 10).isActive = true
         categoryLabel.leadingAnchor.constraint(equalTo: categoriesView.leadingAnchor, constant: 10).isActive = true
@@ -147,6 +163,11 @@ final class FinanView: UIView {
         setCategoryButton.leadingAnchor.constraint(equalTo: categoryLabel.trailingAnchor, constant: 10).isActive = true
         setCategoryButton.trailingAnchor.constraint(equalTo: categoriesView.trailingAnchor, constant: -10).isActive = true
         setCategoryButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        button.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 10).isActive = true
+        button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     func overlayCategoriesView() {

@@ -23,6 +23,7 @@ final class FinanViewController: UIViewController {
         finanView.delegate = self
         
         view.addSubview(finanView)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -41,15 +42,15 @@ final class FinanViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-//                for idx in 0..<categoriesArr.count {
-//                    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-//                    button.backgroundColor = .gray
-//                    button.setTitle(categoriesArr[idx], for: .normal)
-//                    button.layer.cornerRadius = 10.0
-//                    button.layer.shadowOpacity = 0.5
-//                    button.layer.shadowRadius = 10
-//                    self.view.addSubview(button)
-//                }
+                for idx in 0..<categoriesArr.count {
+                    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+                    button.backgroundColor = .gray
+                    button.setTitle(categoriesArr[idx], for: .normal)
+                    button.layer.cornerRadius = 10.0
+                    button.layer.shadowOpacity = 0.5
+                    button.layer.shadowRadius = 10
+                    self.view.addSubview(button)
+                }
     }
 }
 
