@@ -27,7 +27,10 @@ final class FinanViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        finanView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+        finanView.frame = CGRect(x: 0,
+                                 y: view.frame.size.height * 0.25,
+                                 width: view.frame.size.width,
+                                 height: view.frame.size.height - view.frame.size.height * 0.25)
     }
     
     // MARK: - Button builder
