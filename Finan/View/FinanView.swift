@@ -23,7 +23,6 @@ final class FinanView: UIView {
     var categoriesView: UIView = {
         let view = UIView()
         view.backgroundColor = Constants.cardsBGColor
-        view.layer.cornerRadius = Constants.cardsCornerRadius
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -31,7 +30,6 @@ final class FinanView: UIView {
     var priceView: UIView = {
         let view = UIView()
         view.backgroundColor = Constants.cardsBGColor
-        view.layer.cornerRadius = Constants.cardsCornerRadius
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -39,7 +37,13 @@ final class FinanView: UIView {
     var commentView: UIView = {
         let view = UIView()
         view.backgroundColor = Constants.cardsBGColor
-        view.layer.cornerRadius = Constants.cardsCornerRadius
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    var saveView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Constants.cardsBGColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -53,14 +57,13 @@ final class FinanView: UIView {
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.textAlignment = .left
         label.text = "Categories"
-        label.layer.cornerRadius = Constants.cardsCornerRadius
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var setCategoryButton: UIButton = {
         let button = UIButton(frame: CGRect())
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.setImage(UIImage(systemName: "plus.circle"), for: .normal)
         button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         button.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -86,7 +89,6 @@ final class FinanView: UIView {
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.textAlignment = .left
         label.text = "Price"
-        label.layer.cornerRadius = Constants.cardsCornerRadius
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -111,7 +113,6 @@ final class FinanView: UIView {
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.textAlignment = .left
         label.text = "RUB"
-        label.layer.cornerRadius = Constants.cardsCornerRadius
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -123,12 +124,11 @@ final class FinanView: UIView {
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.textAlignment = .left
         label.text = "Comment"
-        label.layer.cornerRadius = 10.0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var commentInput: UITextField = {
+    var commentTextField: UITextField = {
         let textField =  UITextField(frame: CGRect())
         textField.placeholder = "Enter comment here"
         textField.font = UIFont.systemFont(ofSize: 15)
@@ -142,11 +142,34 @@ final class FinanView: UIView {
         return textField
     }()
     
+    var setImageButton: UIButton = {
+        let button = UIButton(frame: CGRect())
+        button.setImage(UIImage(systemName: "photo.on.rectangle"), for: .normal)
+        button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        button.addTarget(self, action: #selector(inputImage), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    //saveView Content
+    var saveButton: UIButton = {
+        let button = UIButton(frame: CGRect())
+        button.setTitle("Save", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 32)
+        button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        button.backgroundColor = Constants.buttonsBGColor
+        button.addTarget(self, action: #selector(saver), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    // MARK: - Initialisers
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         layer.cornerRadius = 10.0
+        translatesAutoresizingMaskIntoConstraints = false
         
         overlayCategoriesView()
         overlayCategoriesViewContent()
@@ -156,6 +179,13 @@ final class FinanView: UIView {
         
         overlayCommentsView()
         overlayCommentsViewContent()
+        
+        overlaySaveView()
+        overlaySaveViewContent()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Button methods
@@ -163,11 +193,18 @@ final class FinanView: UIView {
         self.delegate?.finanViewAddCategoriesButtonClicked()
     }
     
+    @objc private func inputImage() {
+        print(#function)
+    }
+    
+    @objc private func saver() {
+        print(#function)
+    }
+    
     // MARK: - Categories view content
     func overlayCategoriesViewContent() {
         categoriesView.addSubview(categoryLabel)
         categoriesView.addSubview(setCategoryButton)
-//        categoriesView.addSubview(button)
         
         categoryLabel.topAnchor.constraint(equalTo: categoriesView.topAnchor, constant: 10).isActive = true
         categoryLabel.leadingAnchor.constraint(equalTo: categoriesView.leadingAnchor, constant: 10).isActive = true
@@ -177,12 +214,7 @@ final class FinanView: UIView {
         setCategoryButton.topAnchor.constraint(equalTo: categoriesView.topAnchor, constant: 10).isActive = true
         setCategoryButton.leadingAnchor.constraint(equalTo: categoryLabel.trailingAnchor, constant: 10).isActive = true
         setCategoryButton.trailingAnchor.constraint(equalTo: categoriesView.trailingAnchor, constant: -10).isActive = true
-        setCategoryButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-//        button.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 10).isActive = true
-//        button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-//        button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-//        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        setCategoryButton.bottomAnchor.constraint(equalTo: categoryLabel.bottomAnchor).isActive = true
     }
     
     func overlayCategoriesView() {
@@ -230,17 +262,24 @@ final class FinanView: UIView {
     // MARK: - Comments view content
     func overlayCommentsViewContent() {
         commentView.addSubview(commentLabel)
-        commentView.addSubview(commentInput)
+        commentView.addSubview(setImageButton)
+        commentView.addSubview(commentTextField)
         
         commentLabel.topAnchor.constraint(equalTo: commentView.topAnchor, constant: 10).isActive = true
         commentLabel.leadingAnchor.constraint(equalTo: commentView.leadingAnchor, constant: 10).isActive = true
-        commentLabel.trailingAnchor.constraint(equalTo: commentView.trailingAnchor, constant: -10).isActive = true
+        commentLabel.trailingAnchor.constraint(equalTo: setImageButton.leadingAnchor, constant: 10).isActive = true
         commentLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        commentInput.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 10).isActive = true
-        commentInput.leadingAnchor.constraint(equalTo: commentView.leadingAnchor, constant: 10).isActive = true
-        commentInput.trailingAnchor.constraint(equalTo: commentView.trailingAnchor, constant: -10).isActive = true
-        commentInput.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        setImageButton.topAnchor.constraint(equalTo: commentView.topAnchor, constant: 10).isActive = true
+        setImageButton.leadingAnchor.constraint(equalTo: commentLabel.trailingAnchor, constant: -10).isActive = true
+        setImageButton.trailingAnchor.constraint(equalTo: commentView.trailingAnchor, constant: -10).isActive = true
+        setImageButton.bottomAnchor.constraint(equalTo: commentLabel.bottomAnchor).isActive = true
+        
+        commentTextField.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 10).isActive = true
+        commentTextField.leadingAnchor.constraint(equalTo: commentView.leadingAnchor, constant: 10).isActive = true
+        commentTextField.trailingAnchor.constraint(equalTo: commentView.trailingAnchor, constant: -10).isActive = true
+        commentTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
     }
     
     func overlayCommentsView() {
@@ -252,7 +291,23 @@ final class FinanView: UIView {
         commentView.heightAnchor.constraint(equalToConstant: 110).isActive = true
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    // MARK: - Save view content
+    func overlaySaveViewContent() {
+        saveView.addSubview(saveButton)
+        
+//        saveButton.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+//        saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+//        saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+//        saveButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10).isActive = true
     }
+    
+    func overlaySaveView() {
+        addSubview(saveView)
+        
+        saveView.topAnchor.constraint(equalTo: commentView.bottomAnchor, constant: 0).isActive = true
+        saveView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        saveView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        saveView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+    
 }
