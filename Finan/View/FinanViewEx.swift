@@ -11,25 +11,26 @@ import UIKit
 extension FinanViewController {
     func createCategoriesView() {
         
-        let firstSubView = UIView()
-        firstSubView.backgroundColor = .red
-        self.view.addSubview(firstSubView)
-        firstSubView.translatesAutoresizingMaskIntoConstraints = false
+        let finanView = UIView()
+        finanView.backgroundColor = Constants.viewBGColor
+        finanView.layer.cornerRadius = Constants.cardsCornerRadius
+        self.view.addSubview(finanView)
+        finanView.translatesAutoresizingMaskIntoConstraints = false
 
-        let secondSubView = UIView()
-        secondSubView.backgroundColor = .blue
-        firstSubView.addSubview(secondSubView)
-        secondSubView.translatesAutoresizingMaskIntoConstraints = false
+        let categoriesSubView = UIView()
+        categoriesSubView.backgroundColor = Constants.cardsBGColor
+        finanView.addSubview(categoriesSubView)
+        categoriesSubView.translatesAutoresizingMaskIntoConstraints = false
 
-        let constraints = [firstSubView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 40),
-                           firstSubView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                           firstSubView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                           firstSubView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+        let constraints = [finanView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 40),
+                           finanView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                           finanView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                           finanView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
 
-                           secondSubView.topAnchor.constraint(equalTo: firstSubView.topAnchor, constant: 15),
-                           secondSubView.leadingAnchor.constraint(equalTo: firstSubView.leadingAnchor, constant: 15),
-                           secondSubView.trailingAnchor.constraint(equalTo: firstSubView.trailingAnchor, constant: -15),
-                           secondSubView.heightAnchor.constraint(equalToConstant: 60)
+                           categoriesSubView.topAnchor.constraint(equalTo: finanView.topAnchor, constant: 15),
+                           categoriesSubView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
+                           categoriesSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
+                           categoriesSubView.heightAnchor.constraint(equalToConstant: 60)
         ]
         NSLayoutConstraint.activate(constraints)
     }

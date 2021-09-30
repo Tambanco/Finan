@@ -11,7 +11,7 @@ import UIKit
 struct Constants {
     
     static let viewBGColor: UIColor = UIColor(rgb: 0x212121)
-    static let cardsBGColor: UIColor = .clear
+    static let cardsBGColor: UIColor = .red
     static let buttonsBGColor: UIColor = .gray
     static let cardsCornerRadius: CGFloat = 10.0
     static let titleFont: CGFloat = 32
