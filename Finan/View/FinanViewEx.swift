@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension FinanViewController {
-    func createCategoriesView() {
+    func createFinanView() {
         
         let finanView = UIView()
         finanView.backgroundColor = Constants.viewBGColor

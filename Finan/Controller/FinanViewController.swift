@@ -23,7 +23,7 @@ final class FinanViewController: UIViewController {
         finanView.delegate = self
         
 //        view.addSubview(finanView)
-        createCategoriesView()
+        createFinanView()
     }
     
     override func viewDidLayoutSubviews() {
