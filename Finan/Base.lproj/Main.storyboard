@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="CategoriesViewController" id="aVl-vB-EMt" customClass="CategoriesViewController" customModule="Finan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vb7-c5-MCh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-vX-dzH">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="aVl-vB-EMt" id="qdb-gg-HSS"/>
@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="405.79710144927537" y="929.46428571428567"/>
         </scene>
-        <!--My Finances-->
+        <!--Finan View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="FinanViewController" id="BYZ-38-t0r" customClass="FinanViewController" customModule="Finan" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,14 +53,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Finances" image="creditcard" catalog="system" id="eOx-vK-lJ5"/>
+                    <navigationItem key="navigationItem" id="kec-Qf-7Tj"/>
                     <connections>
                         <segue destination="dVU-Ea-rnl" kind="show" identifier="showCategories" id="fHz-v2-GqE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-549.27536231884062" y="182.8125"/>
+            <point key="canvasLocation" x="360.86956521739131" y="182.8125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5uD-DW-fH4">
@@ -73,7 +73,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="bxv-AI-2ow"/>
+                        <segue destination="7YH-5g-5cD" kind="relationship" relationship="viewControllers" id="bxv-AI-2ow"/>
                         <segue destination="wLh-lP-rFz" kind="relationship" relationship="viewControllers" id="ocQ-g1-b6f"/>
                         <segue destination="FZq-GB-eYw" kind="relationship" relationship="viewControllers" id="bhO-tu-KRC"/>
                     </connections>
@@ -96,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iwz-Z7-Dnt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="329" y="183"/>
+            <point key="canvasLocation" x="1239.1304347826087" y="182.8125"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="N1N-JD-BrM">
@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKO-AG-Gq3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2394.202898550725" y="166.74107142857142"/>
+            <point key="canvasLocation" x="3304.347826086957" y="166.74107142857142"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Ayv-UC-Zzp">
@@ -150,7 +150,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i47-dh-ZGr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482.608695652174" y="166.74107142857142"/>
+            <point key="canvasLocation" x="2392.753623188406" y="166.74107142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SY8-bG-TBC">
@@ -159,7 +159,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Re8-Ia-pW1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s4m-iA-bQh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -170,6 +170,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzA-hT-d3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-504.34782608695656" y="929.46428571428567"/>
+        </scene>
+        <!--My Finances-->
+        <scene sceneID="JJS-jZ-iN6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7YH-5g-5cD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Finances" image="creditcard" catalog="system" id="eOx-vK-lJ5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bNa-3f-tzf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="47U-Ud-IgB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5XI-wq-JF6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-549.27536231884062" y="182.8125"/>
         </scene>
     </scenes>
     <resources>

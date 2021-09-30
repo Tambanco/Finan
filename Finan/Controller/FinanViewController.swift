@@ -22,16 +22,18 @@ final class FinanViewController: UIViewController {
         
         finanView.delegate = self
         
-        view.addSubview(finanView)
-        
+//        view.addSubview(finanView)
+        createCategoriesView()
     }
     
     override func viewDidLayoutSubviews() {
-        finanView.frame = CGRect(x: 0,
-                                 y: view.frame.size.height * 0.25,
-                                 width: view.frame.size.width,
-                                 height: view.frame.size.height - view.frame.size.height * 0.25)
+//        finanView.frame = CGRect(x: 0,
+//                                 y: view.frame.size.height * 0.25,
+//                                 width: view.frame.size.width,
+//                                 height: view.frame.size.height - view.frame.size.height * 0.25)
     }
+    
+    
     
     // MARK: - Button builder
     private func buttonBuilder() {

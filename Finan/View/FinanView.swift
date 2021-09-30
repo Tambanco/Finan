@@ -22,7 +22,7 @@ final class FinanView: UIView {
     // MARK: - First layer
     var categoriesView: UIView = {
         let view = UIView()
-        view.backgroundColor = Constants.cardsBGColor
+        view.backgroundColor = .black
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -57,6 +57,7 @@ final class FinanView: UIView {
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.textAlignment = .left
         label.text = "Categories"
+        label.backgroundColor = .green
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -65,22 +66,12 @@ final class FinanView: UIView {
         let button = UIButton(frame: CGRect())
         button.setImage(UIImage(systemName: "plus.circle"), for: .normal)
         button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        button.contentHorizontalAlignment = .trailing
+        button.backgroundColor = .green
         button.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-//    var button: UIButton = {
-//        let button = UIButton(frame: CGRect())
-//        button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        button.backgroundColor = .gray
-//        button.layer.cornerRadius = Constants.cardsCornerRadius
-//        button.layer.shadowOpacity = 0.5
-//        button.layer.shadowRadius = 10
-//        button.setTitle(categoriesArr.first, for: .normal)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
     
     //priceView Content
     var priceLabel: UILabel = {
@@ -180,8 +171,8 @@ final class FinanView: UIView {
         overlayCommentsView()
         overlayCommentsViewContent()
         
-        overlaySaveView()
-        overlaySaveViewContent()
+//        overlaySaveView()
+//        overlaySaveViewContent()
     }
     
     required init?(coder: NSCoder) {
@@ -208,21 +199,17 @@ final class FinanView: UIView {
         
         categoryLabel.topAnchor.constraint(equalTo: categoriesView.topAnchor, constant: 10).isActive = true
         categoryLabel.leadingAnchor.constraint(equalTo: categoriesView.leadingAnchor, constant: 10).isActive = true
-        categoryLabel.trailingAnchor.constraint(equalTo: setCategoryButton.leadingAnchor, constant: -10).isActive = true
-        categoryLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         setCategoryButton.topAnchor.constraint(equalTo: categoriesView.topAnchor, constant: 10).isActive = true
-        setCategoryButton.leadingAnchor.constraint(equalTo: categoryLabel.trailingAnchor, constant: 10).isActive = true
         setCategoryButton.trailingAnchor.constraint(equalTo: categoriesView.trailingAnchor, constant: -10).isActive = true
-        setCategoryButton.bottomAnchor.constraint(equalTo: categoryLabel.bottomAnchor).isActive = true
     }
     
     func overlayCategoriesView() {
         addSubview(categoriesView)
         
-        categoriesView.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
-        categoriesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        categoriesView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        categoriesView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+        categoriesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        categoriesView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         categoriesView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
     }
@@ -236,25 +223,21 @@ final class FinanView: UIView {
         priceLabel.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 10).isActive = true
         priceLabel.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 10).isActive = true
         priceLabel.trailingAnchor.constraint(equalTo: priceView.trailingAnchor, constant: -10).isActive = true
-        priceLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         priceTextField.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10).isActive = true
         priceTextField.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 10).isActive = true
-        priceTextField.trailingAnchor.constraint(equalTo: currencyLabel.leadingAnchor, constant: -5).isActive = true
-        priceTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        priceTextField.trailingAnchor.constraint(equalTo: currencyLabel.leadingAnchor, constant: -10).isActive = true
         
         currencyLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10).isActive = true
-        currencyLabel.leadingAnchor.constraint(equalTo: priceTextField.trailingAnchor, constant: 5).isActive = true
         currencyLabel.trailingAnchor.constraint(equalTo: priceView.trailingAnchor, constant: -10).isActive = true
-        currencyLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     func overlayPriceView() {
         addSubview(priceView)
         
         priceView.topAnchor.constraint(equalTo: categoriesView.bottomAnchor, constant: 0).isActive = true
-        priceView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        priceView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        priceView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        priceView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         priceView.heightAnchor.constraint(equalToConstant: 110).isActive = true
     }
     
@@ -268,17 +251,13 @@ final class FinanView: UIView {
         commentLabel.topAnchor.constraint(equalTo: commentView.topAnchor, constant: 10).isActive = true
         commentLabel.leadingAnchor.constraint(equalTo: commentView.leadingAnchor, constant: 10).isActive = true
         commentLabel.trailingAnchor.constraint(equalTo: setImageButton.leadingAnchor, constant: 10).isActive = true
-        commentLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         setImageButton.topAnchor.constraint(equalTo: commentView.topAnchor, constant: 10).isActive = true
-        setImageButton.leadingAnchor.constraint(equalTo: commentLabel.trailingAnchor, constant: -10).isActive = true
         setImageButton.trailingAnchor.constraint(equalTo: commentView.trailingAnchor, constant: -10).isActive = true
-        setImageButton.bottomAnchor.constraint(equalTo: commentLabel.bottomAnchor).isActive = true
         
         commentTextField.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 10).isActive = true
         commentTextField.leadingAnchor.constraint(equalTo: commentView.leadingAnchor, constant: 10).isActive = true
         commentTextField.trailingAnchor.constraint(equalTo: commentView.trailingAnchor, constant: -10).isActive = true
-        commentTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
     }
     
@@ -286,28 +265,25 @@ final class FinanView: UIView {
         addSubview(commentView)
         
         commentView.topAnchor.constraint(equalTo: priceView.bottomAnchor, constant: 0).isActive = true
-        commentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        commentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        commentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        commentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         commentView.heightAnchor.constraint(equalToConstant: 110).isActive = true
     }
     
     // MARK: - Save view content
-    func overlaySaveViewContent() {
-        saveView.addSubview(saveButton)
-        
+//    func overlaySaveViewContent() {
+//        saveView.addSubview(saveButton)
+//
 //        saveButton.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
 //        saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-//        saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-//        saveButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10).isActive = true
-    }
-    
-    func overlaySaveView() {
-        addSubview(saveView)
-        
-        saveView.topAnchor.constraint(equalTo: commentView.bottomAnchor, constant: 0).isActive = true
-        saveView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        saveView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        saveView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-    }
+//    }
+//
+//    func overlaySaveView() {
+//        addSubview(saveView)
+//
+//        saveView.topAnchor.constraint(equalTo: commentView.bottomAnchor, constant: 0).isActive = true
+//        saveView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+//        saveView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+//    }
     
 }
