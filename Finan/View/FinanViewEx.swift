@@ -35,10 +35,13 @@ extension FinanViewController {
         categoriesSubView.addSubview(categoriesLabel)
         
         let addCatButton = UIButton(frame: CGRect())
-        addCatButton.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+        addCatButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        addCatButton.setImage(UIImage(systemName: "plus"), for: .normal)
         addCatButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        addCatButton.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        addCatButton.contentHorizontalAlignment = .trailing
+        addCatButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        addCatButton.layer.cornerRadius = 10
+        addCatButton.layer.borderWidth = 2
+//        addCatButton.contentHorizontalAlignment = .trailing
         addCatButton.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
         addCatButton.translatesAutoresizingMaskIntoConstraints = false
         categoriesSubView.addSubview(addCatButton)
@@ -110,7 +113,12 @@ extension FinanViewController {
         
         let addImageButton = UIButton(frame: CGRect())
         addImageButton.setImage(UIImage(systemName: "photo.on.rectangle"), for: .normal)
+        addImageButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         addImageButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        addImageButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        addImageButton.layer.cornerRadius = 10
+        addImageButton.layer.borderWidth = 2
+//        addImageButton.layer.masksToBounds = true
         addImageButton.addTarget(self, action: #selector(inputImage), for: .touchUpInside)
         addImageButton.translatesAutoresizingMaskIntoConstraints = false
         commentSubView.addSubview(addImageButton)
@@ -179,7 +187,8 @@ extension FinanViewController {
                            saveButton.topAnchor.constraint(equalTo: commentSubView.bottomAnchor, constant: 15),
                            saveButton.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
                            saveButton.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
-                           saveButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -15)
+//                           saveButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -15)
+                           saveButton.heightAnchor.constraint(equalToConstant: 50)
 
                            
         ]
@@ -191,10 +200,10 @@ extension FinanViewController {
     }
     
     @objc func inputImage() {
-        
+        print(#function)
     }
     
     @objc func save() {
-        
+        print(#function)
     }
 }
