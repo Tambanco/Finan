@@ -47,16 +47,7 @@ extension FinanViewController {
         categoriesSubView.addSubview(addCatButton)
         
         let categoriesTagView = TagListView()
-        categoriesTagView.frame = CGRect(x: 0, y: 75, width: 350, height: 130)
-        categoriesTagView.textFont = UIFont.systemFont(ofSize: 24)
-//        categoriesTagView.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-        categoriesTagView.tagBackgroundColor = .clear
-        categoriesTagView.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        categoriesTagView.borderWidth = Constants.borderWidth
-        categoriesTagView.paddingX = Constants.paddingX
-        categoriesTagView.paddingY = Constants.paddingY
-        categoriesTagView.alignment = .center
-        categoriesTagView.addTags(categoriesArr)
+        setupTags(categoriesTagView: categoriesTagView)
         categoriesSubView.addSubview(categoriesTagView)
         
         //PriceView
@@ -216,13 +207,17 @@ extension FinanViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
-    fileprivate func setupTags() {
-//        categoriesTagView.textFont = UIFont.systemFont(ofSize: 24)
-//        categoriesTagView.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-//        categoriesTagView.tagBackgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-//        categoriesTagView.layer.cornerRadius = 10
-//        categoriesTagView.alignment = .leading
-//        categoriesTagView.addTags(["Питание", "ЖКХ", "Одежда", "Досуг", "Разное", "Безделушки", "Проезд"])
+    fileprivate func setupTags(categoriesTagView: TagListView) {
+        categoriesTagView.frame = CGRect(x: 0, y: 75, width: 350, height: 130)
+        categoriesTagView.textFont = UIFont.systemFont(ofSize: 24)
+        categoriesTagView.tagBackgroundColor = .clear
+        categoriesTagView.cornerRadius = Constants.cardsCornerRadius
+        categoriesTagView.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        categoriesTagView.borderWidth = Constants.borderWidth
+        categoriesTagView.paddingX = Constants.paddingX
+        categoriesTagView.paddingY = Constants.paddingY
+        categoriesTagView.alignment = .center
+        categoriesTagView.addTags(categoriesArr)
     }
     
     @objc func setCategories() {
