@@ -28,7 +28,6 @@ extension FinanViewController {
         let categoriesLabel = UILabel()
         categoriesLabel.font = UIFont.systemFont(ofSize: Constants.titleFont)
         categoriesLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//        categoriesLabel.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         categoriesLabel.textAlignment = .left
         categoriesLabel.text = "Categories"
         categoriesLabel.translatesAutoresizingMaskIntoConstraints = false
