@@ -15,7 +15,6 @@ extension FinanViewController {
         // FinanView
         let finanView = UIView()
         finanView.backgroundColor = Constants.viewBGColor
-        finanView.layer.cornerRadius = Constants.cardsCornerRadius
         finanView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(finanView)
 
@@ -40,10 +39,19 @@ extension FinanViewController {
         addCatButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         addCatButton.layer.cornerRadius = Constants.cardsCornerRadius
         addCatButton.layer.borderWidth = Constants.borderWidth
-//        addCatButton.contentHorizontalAlignment = .trailing
         addCatButton.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
         addCatButton.translatesAutoresizingMaskIntoConstraints = false
         categoriesSubView.addSubview(addCatButton)
+        
+        let categoriesTagView = TagListView()
+        categoriesTagView.frame = CGRect(x: 0, y: 0, width: 300, height: 170)
+        categoriesSubView.addSubview(categoriesTagView)
+        categoriesTagView.textFont = UIFont.systemFont(ofSize: 24)
+        categoriesTagView.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        categoriesTagView.tagBackgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        categoriesTagView.layer.cornerRadius = 10
+        categoriesTagView.alignment = .leading
+        categoriesTagView.addTags(["Питание", "ЖКХ", "Одежда", "Досуг", "Разное", "Безделушки", "Проезд"])
         
         //PriceView
         let priceSubView = UIView()
@@ -143,6 +151,9 @@ extension FinanViewController {
                            categoriesSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
                            categoriesSubView.heightAnchor.constraint(equalToConstant: 150),
                            
+//                           categoriesTagView.topAnchor.constraint(equalTo: categoriesLabel.bottomAnchor, constant: 5),
+//                           categoriesTagView.leadingAnchor.constraint(equalTo: categoriesSubView.leadingAnchor, constant: 15),
+                           
                            categoriesLabel.topAnchor.constraint(equalTo: categoriesSubView.topAnchor, constant: 15),
                            categoriesLabel.leadingAnchor.constraint(equalTo: categoriesSubView.leadingAnchor, constant: 15),
                            
@@ -195,6 +206,15 @@ extension FinanViewController {
                            
         ]
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    fileprivate func setupTags() {
+//        categoriesTagView.textFont = UIFont.systemFont(ofSize: 24)
+//        categoriesTagView.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+//        categoriesTagView.tagBackgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+//        categoriesTagView.layer.cornerRadius = 10
+//        categoriesTagView.alignment = .leading
+//        categoriesTagView.addTags(["Питание", "ЖКХ", "Одежда", "Досуг", "Разное", "Безделушки", "Проезд"])
     }
     
     @objc func setCategories() {
