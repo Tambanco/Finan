@@ -94,7 +94,6 @@ extension FinanViewController {
         currencyLabel.translatesAutoresizingMaskIntoConstraints = false
         priceSubView.addSubview(currencyLabel)
 
-        
         //CommentsView
         let commentSubView = UIView()
         commentSubView.backgroundColor = Constants.cardsBGColor
