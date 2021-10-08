@@ -35,12 +35,12 @@ extension FinanViewController {
         categoriesSubView.addSubview(categoriesLabel)
         
         let addCatButton = UIButton(frame: CGRect())
-        addCatButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        addCatButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         addCatButton.setImage(UIImage(systemName: "plus"), for: .normal)
         addCatButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         addCatButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        addCatButton.layer.cornerRadius = 10
-        addCatButton.layer.borderWidth = 2
+        addCatButton.layer.cornerRadius = Constants.cardsCornerRadius
+        addCatButton.layer.borderWidth = Constants.borderWidth
 //        addCatButton.contentHorizontalAlignment = .trailing
         addCatButton.addTarget(self, action: #selector(setCategories), for: .touchUpInside)
         addCatButton.translatesAutoresizingMaskIntoConstraints = false
@@ -116,9 +116,8 @@ extension FinanViewController {
         addImageButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         addImageButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         addImageButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        addImageButton.layer.cornerRadius = 10
-        addImageButton.layer.borderWidth = 2
-//        addImageButton.layer.masksToBounds = true
+        addImageButton.layer.cornerRadius = Constants.cardsCornerRadius
+        addImageButton.layer.borderWidth = Constants.borderWidth
         addImageButton.addTarget(self, action: #selector(inputImage), for: .touchUpInside)
         addImageButton.translatesAutoresizingMaskIntoConstraints = false
         commentSubView.addSubview(addImageButton)
@@ -127,8 +126,9 @@ extension FinanViewController {
         let saveButton = UIButton(frame: CGRect())
         saveButton.setTitle("Save", for: .normal)
         saveButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        saveButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         saveButton.layer.cornerRadius = Constants.cardsCornerRadius
-        saveButton.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        saveButton.layer.borderWidth = Constants.borderWidth
         saveButton.addTarget(self, action: #selector(save), for: .touchUpInside)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         finanView.addSubview(saveButton)
@@ -162,9 +162,11 @@ extension FinanViewController {
                            
                            priceTextField.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 15),
                            priceTextField.leadingAnchor.constraint(equalTo: priceSubView.leadingAnchor, constant: 15),
+                           priceTextField.trailingAnchor.constraint(equalTo: currencyLabel.leadingAnchor, constant: -15),
                            
                            currencyLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 15),
-                           currencyLabel.leadingAnchor.constraint(equalTo: priceTextField.trailingAnchor, constant: 15),
+//                           currencyLabel.leadingAnchor.constraint(equalTo: priceTextField.trailingAnchor, constant: 15),
+                           currencyLabel.trailingAnchor.constraint(equalTo: priceSubView.trailingAnchor, constant: -15),
                            currencyLabel.centerYAnchor.constraint(equalTo: priceTextField.centerYAnchor),
                            
                            //commentSubView constraints
@@ -178,6 +180,7 @@ extension FinanViewController {
                            
                            commentTextField.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 15),
                            commentTextField.leadingAnchor.constraint(equalTo: commentSubView.leadingAnchor, constant: 15),
+                           commentTextField.trailingAnchor.constraint(equalTo: commentSubView.trailingAnchor, constant: -15),
                            
                            addImageButton.topAnchor.constraint(equalTo: commentSubView.topAnchor, constant: 15),
                            addImageButton.trailingAnchor.constraint(equalTo: commentSubView.trailingAnchor, constant: -15),
@@ -196,7 +199,7 @@ extension FinanViewController {
     }
     
     @objc func setCategories() {
-        print(#function)
+        performSegue(withIdentifier: "showCategories", sender: nil)
     }
     
     @objc func inputImage() {

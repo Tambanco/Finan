@@ -2,6 +2,7 @@
 target 'Finan' do
   use_frameworks!
 
-pod 'Reveal-SDK', configuration: ['Debug']
+	pod 'TagListView', '~> 1.0'
+
 
 end

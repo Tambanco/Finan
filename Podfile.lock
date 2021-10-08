@@ -1,16 +1,16 @@
 PODS:
-  - Reveal-SDK (31)
+  - TagListView (1.4.1)
 
 DEPENDENCIES:
-  - Reveal-SDK
+  - TagListView (~> 1.0)
 
 SPEC REPOS:
   trunk:
-    - Reveal-SDK
+    - TagListView
 
 SPEC CHECKSUMS:
-  Reveal-SDK: 62ae124d57732c4fe7e88635274ca24054dd2d29
+  TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
 
-PODFILE CHECKSUM: e8f781c2bd773d0c4a167b9693271b4b419ecd8f
+PODFILE CHECKSUM: 4d037eba88bc026359d1b0c19fde40d88eef07d7
 
 COCOAPODS: 1.10.1

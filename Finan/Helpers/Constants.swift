@@ -14,5 +14,6 @@ struct Constants {
     static let cardsBGColor: UIColor = .clear
     static let buttonsBGColor: UIColor = .gray
     static let cardsCornerRadius: CGFloat = 10.0
+    static let borderWidth: CGFloat = 2.0
     static let titleFont: CGFloat = 32
 }
