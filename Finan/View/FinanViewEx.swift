@@ -17,6 +17,7 @@ extension FinanViewController {
         // FinanView
         let finanView = UIView()
         finanView.backgroundColor = Constants.viewBGColor
+        finanView.layer.cornerRadius = Constants.cardsCornerRadius
         finanView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(finanView)
 
