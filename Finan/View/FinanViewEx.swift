@@ -44,14 +44,16 @@ extension FinanViewController {
         categoriesSubView.addSubview(addCatButton)
         
         let categoriesTagView = TagListView()
-        categoriesTagView.frame = CGRect(x: 0, y: 0, width: 300, height: 170)
-        categoriesSubView.addSubview(categoriesTagView)
+        categoriesTagView.frame = CGRect(x: 0, y: 75, width: 350, height: 130)
         categoriesTagView.textFont = UIFont.systemFont(ofSize: 24)
-        categoriesTagView.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-        categoriesTagView.tagBackgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+//        categoriesTagView.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        categoriesTagView.tagBackgroundColor = .clear
+        categoriesTagView.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        categoriesTagView.borderWidth = Constants.borderWidth
         categoriesTagView.layer.cornerRadius = 10
-        categoriesTagView.alignment = .leading
+        categoriesTagView.alignment = .center
         categoriesTagView.addTags(["Питание", "ЖКХ", "Одежда", "Досуг", "Разное", "Безделушки", "Проезд"])
+        categoriesSubView.addSubview(categoriesTagView)
         
         //PriceView
         let priceSubView = UIView()
@@ -149,10 +151,7 @@ extension FinanViewController {
                            categoriesSubView.topAnchor.constraint(equalTo: finanView.topAnchor, constant: 15),
                            categoriesSubView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
                            categoriesSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
-                           categoriesSubView.heightAnchor.constraint(equalToConstant: 150),
-                           
-//                           categoriesTagView.topAnchor.constraint(equalTo: categoriesLabel.bottomAnchor, constant: 5),
-//                           categoriesTagView.leadingAnchor.constraint(equalTo: categoriesSubView.leadingAnchor, constant: 15),
+                           categoriesSubView.heightAnchor.constraint(equalToConstant: 100),
                            
                            categoriesLabel.topAnchor.constraint(equalTo: categoriesSubView.topAnchor, constant: 15),
                            categoriesLabel.leadingAnchor.constraint(equalTo: categoriesSubView.leadingAnchor, constant: 15),
@@ -161,8 +160,14 @@ extension FinanViewController {
                            addCatButton.trailingAnchor.constraint(equalTo: categoriesSubView.trailingAnchor, constant: -15),
                            addCatButton.centerYAnchor.constraint(equalTo: categoriesLabel.centerYAnchor),
                            
+                           //categoriesTagView constraints
+//                           categoriesTagView.topAnchor.constraint(equalTo: categoriesSubView.bottomAnchor, constant: 15),
+//                           categoriesTagView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
+//                           categoriesTagView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
+//                           categoriesTagView.heightAnchor.constraint(equalToConstant: 150),
+                           
                            //priceSubView constraints
-                           priceSubView.topAnchor.constraint(equalTo: categoriesSubView.bottomAnchor, constant: 15),
+                           priceSubView.topAnchor.constraint(equalTo: categoriesTagView.bottomAnchor, constant: 15),
                            priceSubView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
                            priceSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
                            priceSubView.heightAnchor.constraint(equalToConstant: 150),
