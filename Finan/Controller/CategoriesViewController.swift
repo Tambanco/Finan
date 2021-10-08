@@ -43,15 +43,11 @@ class CategoriesViewController: UIViewController {
         }
     }
     
-    
     @objc func addCategories() {
         let alert = UIAlertController(title: "New Categories", message: "Add a new category", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
             guard let textField = alert.textFields?.first,
-                  let nameToSave = textField.text else {
-                
-                return
-            }
+                  let nameToSave = textField.text else { return }
             
             self.save(name: nameToSave)
             self.categoriesTableView.reloadData()

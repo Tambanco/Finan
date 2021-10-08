@@ -53,7 +53,8 @@ extension FinanViewController {
         categoriesTagView.tagBackgroundColor = .clear
         categoriesTagView.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         categoriesTagView.borderWidth = Constants.borderWidth
-        categoriesTagView.layer.cornerRadius = 10
+        categoriesTagView.paddingX = Constants.paddingX
+        categoriesTagView.paddingY = Constants.paddingY
         categoriesTagView.alignment = .center
         categoriesTagView.addTags(categoriesArr)
         categoriesSubView.addSubview(categoriesTagView)

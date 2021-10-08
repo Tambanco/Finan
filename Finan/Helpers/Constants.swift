@@ -16,4 +16,6 @@ struct Constants {
     static let cardsCornerRadius: CGFloat = 10.0
     static let borderWidth: CGFloat = 2.0
     static let titleFont: CGFloat = 32
+    static let paddingX: CGFloat = 10
+    static let paddingY: CGFloat = 10
 }

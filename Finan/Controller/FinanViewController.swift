@@ -11,7 +11,6 @@ import CoreData
 final class FinanViewController: UIViewController {
     
     // MARK: - Properties
-    let finanView = FinanView()
     
     var categories: [NSManagedObject] = []
     var categoriesArr: [String] = []
@@ -20,14 +19,8 @@ final class FinanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        finanView.delegate = self
-        
         createCategories()
         createFinanView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-
     }
     
     // MARK: - Button builder
@@ -43,12 +36,5 @@ final class FinanViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-    }
-}
-
-extension FinanViewController: FinanViewDelegate {
-    func finanViewAddCategoriesButtonClicked() {
-        print(#function)
-        performSegue(withIdentifier: "showCategories", sender: nil)
     }
 }
