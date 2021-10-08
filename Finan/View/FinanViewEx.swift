@@ -8,8 +8,10 @@
 import Foundation
 import UIKit
 import TagListView
+import CoreData
 
 extension FinanViewController {
+    
     func createFinanView() {
         
         // FinanView
@@ -52,7 +54,7 @@ extension FinanViewController {
         categoriesTagView.borderWidth = Constants.borderWidth
         categoriesTagView.layer.cornerRadius = 10
         categoriesTagView.alignment = .center
-        categoriesTagView.addTags(["Питание", "ЖКХ", "Одежда", "Досуг", "Разное", "Безделушки", "Проезд"])
+        categoriesTagView.addTags(categoriesArr)
         categoriesSubView.addSubview(categoriesTagView)
         
         //PriceView

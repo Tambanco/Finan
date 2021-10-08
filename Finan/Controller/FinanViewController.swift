@@ -14,7 +14,7 @@ final class FinanViewController: UIViewController {
     let finanView = FinanView()
     
     var categories: [NSManagedObject] = []
-    var categoriesArr: [String] = ["Питание"]
+    var categoriesArr: [String] = []
     
     // MARK: - App life cycle
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ final class FinanViewController: UIViewController {
         
         finanView.delegate = self
         
-//        view.addSubview(finanView)
+        createCategories()
         createFinanView()
     }
     
@@ -30,29 +30,19 @@ final class FinanViewController: UIViewController {
 
     }
     
-    
-    
     // MARK: - Button builder
-    private func buttonBuilder() {
+    private func createCategories() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Categories")
         
         do {
             categories = try managedContext.fetch(fetchRequest)
+            categoriesArr = categories.map { $0.value(forKey: "categoryName") as! String }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-                for idx in 0..<categoriesArr.count {
-                    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-                    button.backgroundColor = .gray
-                    button.setTitle(categoriesArr[idx], for: .normal)
-                    button.layer.cornerRadius = 10.0
-                    button.layer.shadowOpacity = 0.5
-                    button.layer.shadowRadius = 10
-                    self.view.addSubview(button)
-                }
     }
 }
 

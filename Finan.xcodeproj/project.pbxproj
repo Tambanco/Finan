@@ -20,7 +20,6 @@
 		4977E9CA26F8E8AC00DC5DC4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977E9C926F8E8AC00DC5DC4 /* UIColorExtension.swift */; };
 		49A645F026FCE10300A90C01 /* FinanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A645EF26FCE10300A90C01 /* FinanView.swift */; };
 		49C2C2792706353800E44DE1 /* FinanViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2C2782706353800E44DE1 /* FinanViewEx.swift */; };
-		49C2C27D270635F800E44DE1 /* CategoriesViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2C27C270635F800E44DE1 /* CategoriesViewEx.swift */; };
 		49C86A9826FD108900FD48C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C86A9726FD108900FD48C7 /* Constants.swift */; };
 		49F9D35026F510D700A5C3CC /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9D34F26F510D700A5C3CC /* Constraints.swift */; };
 		4AD692061B9528BAA60304C4 /* Pods_Finan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB74F8148DCF5BE751E0A091 /* Pods_Finan.framework */; };
@@ -43,7 +42,6 @@
 		4977E9C926F8E8AC00DC5DC4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		49A645EF26FCE10300A90C01 /* FinanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanView.swift; sourceTree = "<group>"; };
 		49C2C2782706353800E44DE1 /* FinanViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanViewEx.swift; sourceTree = "<group>"; };
-		49C2C27C270635F800E44DE1 /* CategoriesViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewEx.swift; sourceTree = "<group>"; };
 		49C86A9726FD108900FD48C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		49F9D34F26F510D700A5C3CC /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		6B2F866400EB1671D50A54DE /* Pods-Finan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finan.release.xcconfig"; path = "Target Support Files/Pods-Finan/Pods-Finan.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 			children = (
 				49A645EF26FCE10300A90C01 /* FinanView.swift */,
 				49C2C2782706353800E44DE1 /* FinanViewEx.swift */,
-				49C2C27C270635F800E44DE1 /* CategoriesViewEx.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,7 +276,6 @@
 				49C86A9826FD108900FD48C7 /* Constants.swift in Sources */,
 				4906706626F0F77000011E3E /* SceneDelegate.swift in Sources */,
 				4906708F26F4AF7C00011E3E /* Categories.xcdatamodeld in Sources */,
-				49C2C27D270635F800E44DE1 /* CategoriesViewEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
