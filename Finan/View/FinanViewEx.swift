@@ -22,7 +22,6 @@ extension FinanViewController {
         // CategoriesView
         let categoriesSubView = UIView()
         categoriesSubView.backgroundColor = Constants.cardsBGColor
-//        categoriesSubView.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         categoriesSubView.translatesAutoresizingMaskIntoConstraints = false
         finanView.addSubview(categoriesSubView)
         
