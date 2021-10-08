@@ -53,14 +53,12 @@ extension FinanViewController {
         //PriceView
         let priceSubView = UIView()
         priceSubView.backgroundColor = Constants.cardsBGColor
-//        priceSubView.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         priceSubView.translatesAutoresizingMaskIntoConstraints = false
         finanView.addSubview(priceSubView)
         
         let priceLabel = UILabel()
         priceLabel.font = UIFont.systemFont(ofSize: Constants.titleFont)
         priceLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//        priceLabel.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         priceLabel.textAlignment = .left
         priceLabel.text = "Price"
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -79,9 +77,8 @@ extension FinanViewController {
         priceSubView.addSubview(priceTextField)
         
         let currencyLabel = UILabel()
-        currencyLabel.font = UIFont.systemFont(ofSize: Constants.titleFont)
+        currencyLabel.font = UIFont.systemFont(ofSize: Constants.currencyFont)
         currencyLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//        currencyLabel.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         currencyLabel.textAlignment = .left
         currencyLabel.text = "RUB"
         currencyLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -90,12 +87,11 @@ extension FinanViewController {
         //CommentsView
         let commentSubView = UIView()
         commentSubView.backgroundColor = Constants.cardsBGColor
-//        commentSubView.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         commentSubView.translatesAutoresizingMaskIntoConstraints = false
         finanView.addSubview(commentSubView)
         
         let commentLabel = UILabel()
-        commentLabel.font = UIFont.systemFont(ofSize: 32)
+        commentLabel.font = UIFont.systemFont(ofSize: Constants.titleFont)
         commentLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         commentLabel.textAlignment = .left
         commentLabel.text = "Comment"
@@ -104,7 +100,7 @@ extension FinanViewController {
         
         let commentTextField =  UITextField(frame: CGRect())
         commentTextField.placeholder = "Enter price here"
-        commentTextField.font = UIFont.systemFont(ofSize: 15)
+        commentTextField.font = UIFont.systemFont(ofSize: Constants.textFieldFont)
         commentTextField.borderStyle = UITextField.BorderStyle.roundedRect
         commentTextField.autocorrectionType = UITextAutocorrectionType.no
         commentTextField.keyboardType = UIKeyboardType.default
@@ -129,6 +125,7 @@ extension FinanViewController {
         let saveButton = UIButton(frame: CGRect())
         saveButton.setTitle("Save", for: .normal)
         saveButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: Constants.currencyFont)
         saveButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         saveButton.layer.cornerRadius = Constants.cardsCornerRadius
         saveButton.layer.borderWidth = Constants.borderWidth
@@ -153,12 +150,6 @@ extension FinanViewController {
                            addCatButton.topAnchor.constraint(equalTo: categoriesSubView.topAnchor, constant: 15),
                            addCatButton.trailingAnchor.constraint(equalTo: categoriesSubView.trailingAnchor, constant: -15),
                            addCatButton.centerYAnchor.constraint(equalTo: categoriesLabel.centerYAnchor),
-                           
-                           //categoriesTagView constraints
-//                           categoriesTagView.topAnchor.constraint(equalTo: categoriesSubView.bottomAnchor, constant: 15),
-//                           categoriesTagView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
-//                           categoriesTagView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
-//                           categoriesTagView.heightAnchor.constraint(equalToConstant: 150),
                            
                            //priceSubView constraints
                            priceSubView.topAnchor.constraint(equalTo: categoriesTagView.bottomAnchor, constant: 15),
@@ -199,17 +190,14 @@ extension FinanViewController {
                            saveButton.topAnchor.constraint(equalTo: commentSubView.bottomAnchor, constant: 15),
                            saveButton.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
                            saveButton.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
-//                           saveButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -15)
                            saveButton.heightAnchor.constraint(equalToConstant: 50)
-
-                           
         ]
         NSLayoutConstraint.activate(constraints)
     }
     
     fileprivate func setupTags(categoriesTagView: TagListView) {
         categoriesTagView.frame = CGRect(x: 0, y: 75, width: 350, height: 130)
-        categoriesTagView.textFont = UIFont.systemFont(ofSize: 24)
+        categoriesTagView.textFont = UIFont.systemFont(ofSize: Constants.tagFont)
         categoriesTagView.tagBackgroundColor = .clear
         categoriesTagView.cornerRadius = Constants.cardsCornerRadius
         categoriesTagView.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -230,5 +218,19 @@ extension FinanViewController {
     
     @objc func save() {
         print(#function)
+    }
+    
+    // MARK: - Create categories
+    func createCategories() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Categories")
+        
+        do {
+            categories = try managedContext.fetch(fetchRequest)
+            categoriesArr = categories.map { $0.value(forKey: "categoryName") as! String }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
 }
