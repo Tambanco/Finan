@@ -12,7 +12,7 @@ struct Constants {
     
     // Colors
     static let viewBGColor: UIColor = UIColor(rgb: 0x6D9886)
-    static let cardsBGColor: UIColor = .clear
+    static let cardsBGColor: UIColor = .red
     static let buttonsBGColor: UIColor = .gray
     
     // Radiuses

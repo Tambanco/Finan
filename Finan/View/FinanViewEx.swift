@@ -133,80 +133,67 @@ extension FinanViewController {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         finanView.addSubview(saveButton)
         
-        let constraints = [finanView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 40),
+        let constraints = [finanView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 100),
                            finanView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
                            finanView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
                            finanView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
                            
                            //categoriesSubView constraints
-                           categoriesSubView.topAnchor.constraint(equalTo: finanView.topAnchor, constant: 15),
-                           categoriesSubView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
-                           categoriesSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
-                           categoriesSubView.heightAnchor.constraint(equalToConstant: 100),
+                           categoriesSubView.topAnchor.constraint(equalTo: finanView.topAnchor, constant: 10),
+                           categoriesSubView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 10),
+                           categoriesSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -10),
+                           categoriesSubView.heightAnchor.constraint(equalToConstant: 60),
                            
-                           categoriesLabel.topAnchor.constraint(equalTo: categoriesSubView.topAnchor, constant: 15),
-                           categoriesLabel.leadingAnchor.constraint(equalTo: categoriesSubView.leadingAnchor, constant: 15),
+                           categoriesLabel.topAnchor.constraint(equalTo: categoriesSubView.topAnchor, constant: 10),
+                           categoriesLabel.leadingAnchor.constraint(equalTo: categoriesSubView.leadingAnchor, constant: 10),
                            
-                           addCatButton.topAnchor.constraint(equalTo: categoriesSubView.topAnchor, constant: 15),
-                           addCatButton.trailingAnchor.constraint(equalTo: categoriesSubView.trailingAnchor, constant: -15),
+                           addCatButton.topAnchor.constraint(equalTo: categoriesSubView.topAnchor, constant: 10),
+                           addCatButton.trailingAnchor.constraint(equalTo: categoriesSubView.trailingAnchor, constant: -10),
                            addCatButton.centerYAnchor.constraint(equalTo: categoriesLabel.centerYAnchor),
                            
                            //priceSubView constraints
-                           priceSubView.topAnchor.constraint(equalTo: categoriesTagView.bottomAnchor, constant: 15),
-                           priceSubView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
-                           priceSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
-                           priceSubView.heightAnchor.constraint(equalToConstant: 150),
+                           priceSubView.topAnchor.constraint(equalTo: categoriesTagView.bottomAnchor, constant: 10),
+                           priceSubView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 10),
+                           priceSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -10),
+                           priceSubView.heightAnchor.constraint(equalToConstant: 100),
                            
-                           priceLabel.topAnchor.constraint(equalTo: priceSubView.topAnchor, constant: 15),
-                           priceLabel.leadingAnchor.constraint(equalTo: priceSubView.leadingAnchor, constant: 15),
+                           priceLabel.topAnchor.constraint(equalTo: priceSubView.topAnchor, constant: 10),
+                           priceLabel.leadingAnchor.constraint(equalTo: priceSubView.leadingAnchor, constant: 10),
                            
-                           priceTextField.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 15),
-                           priceTextField.leadingAnchor.constraint(equalTo: priceSubView.leadingAnchor, constant: 15),
-                           priceTextField.trailingAnchor.constraint(equalTo: currencyLabel.leadingAnchor, constant: -15),
+                           priceTextField.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10),
+                           priceTextField.leadingAnchor.constraint(equalTo: priceSubView.leadingAnchor, constant: 10),
+                           priceTextField.trailingAnchor.constraint(equalTo: currencyLabel.leadingAnchor, constant: -10),
                            
-                           currencyLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 15),
-//                           currencyLabel.leadingAnchor.constraint(equalTo: priceTextField.trailingAnchor, constant: 15),
-                           currencyLabel.trailingAnchor.constraint(equalTo: priceSubView.trailingAnchor, constant: -15),
+                           currencyLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10),
+                           currencyLabel.trailingAnchor.constraint(equalTo: priceSubView.trailingAnchor, constant: -10),
                            currencyLabel.centerYAnchor.constraint(equalTo: priceTextField.centerYAnchor),
                            
                            //commentSubView constraints
-                           commentSubView.topAnchor.constraint(equalTo: priceSubView.bottomAnchor, constant: 15),
-                           commentSubView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
-                           commentSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
-                           commentSubView.heightAnchor.constraint(equalToConstant: 150),
+                           commentSubView.topAnchor.constraint(equalTo: priceSubView.bottomAnchor, constant: 10),
+                           commentSubView.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 10),
+                           commentSubView.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -10),
+                           commentSubView.heightAnchor.constraint(equalToConstant: 100),
                            
-                           commentLabel.topAnchor.constraint(equalTo: commentSubView.topAnchor, constant: 15),
-                           commentLabel.leadingAnchor.constraint(equalTo: commentSubView.leadingAnchor, constant: 15),
+                           commentLabel.topAnchor.constraint(equalTo: commentSubView.topAnchor, constant: 10),
+                           commentLabel.leadingAnchor.constraint(equalTo: commentSubView.leadingAnchor, constant: 10),
                            
-                           commentTextField.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 15),
-                           commentTextField.leadingAnchor.constraint(equalTo: commentSubView.leadingAnchor, constant: 15),
-                           commentTextField.trailingAnchor.constraint(equalTo: commentSubView.trailingAnchor, constant: -15),
+                           commentTextField.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 10),
+                           commentTextField.leadingAnchor.constraint(equalTo: commentSubView.leadingAnchor, constant: 10),
+                           commentTextField.trailingAnchor.constraint(equalTo: commentSubView.trailingAnchor, constant: -10),
                            
-                           addImageButton.topAnchor.constraint(equalTo: commentSubView.topAnchor, constant: 15),
-                           addImageButton.trailingAnchor.constraint(equalTo: commentSubView.trailingAnchor, constant: -15),
+                           addImageButton.topAnchor.constraint(equalTo: commentSubView.topAnchor, constant: 10),
+                           addImageButton.trailingAnchor.constraint(equalTo: commentSubView.trailingAnchor, constant: -10),
                            addImageButton.centerYAnchor.constraint(equalTo: commentLabel.centerYAnchor),
                            
                            // save button
-                           saveButton.topAnchor.constraint(equalTo: commentSubView.bottomAnchor, constant: 15),
-                           saveButton.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 15),
-                           saveButton.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -15),
+                           saveButton.topAnchor.constraint(equalTo: commentSubView.bottomAnchor, constant: 10),
+                           saveButton.leadingAnchor.constraint(equalTo: finanView.leadingAnchor, constant: 10),
+                           saveButton.trailingAnchor.constraint(equalTo: finanView.trailingAnchor, constant: -10),
                            saveButton.heightAnchor.constraint(equalToConstant: 50)
         ]
         NSLayoutConstraint.activate(constraints)
     }
     
-    fileprivate func setupTags(categoriesTagView: TagListView) {
-        categoriesTagView.frame = CGRect(x: 0, y: 75, width: 350, height: 130)
-        categoriesTagView.textFont = UIFont.systemFont(ofSize: Constants.tagFont)
-        categoriesTagView.tagBackgroundColor = .clear
-        categoriesTagView.cornerRadius = Constants.cardsCornerRadius
-        categoriesTagView.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        categoriesTagView.borderWidth = Constants.borderWidth
-        categoriesTagView.paddingX = Constants.paddingX
-        categoriesTagView.paddingY = Constants.paddingY
-        categoriesTagView.alignment = .center
-        categoriesTagView.addTags(categoriesArr)
-    }
     
     @objc func setCategories() {
         performSegue(withIdentifier: "showCategories", sender: nil)
@@ -217,6 +204,10 @@ extension FinanViewController {
     }
     
     @objc func save() {
+        print(#function)
+    }
+    
+    func someFunc() {
         print(#function)
     }
     
@@ -232,5 +223,19 @@ extension FinanViewController {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+    }
+    
+    func setupTags(categoriesTagView: TagListView) {
+        categoriesTagView.frame = CGRect(x: 0, y: 75, width: 350, height: 100)
+        categoriesTagView.backgroundColor = Constants.cardsBGColor
+        categoriesTagView.textFont = UIFont.systemFont(ofSize: Constants.tagFont)
+        categoriesTagView.tagBackgroundColor = .clear
+        categoriesTagView.cornerRadius = Constants.cardsCornerRadius
+        categoriesTagView.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        categoriesTagView.borderWidth = Constants.borderWidth
+        categoriesTagView.paddingX = Constants.paddingX
+        categoriesTagView.paddingY = Constants.paddingY
+        categoriesTagView.alignment = .center
+        categoriesTagView.addTags(categoriesArr)
     }
 }

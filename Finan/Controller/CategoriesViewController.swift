@@ -12,13 +12,13 @@ class CategoriesViewController: UIViewController {
     
 // MARK: - Properties
     var categories: [NSManagedObject] = []
-    
+    var categoriesArr: [String] = []
+    var finanView = FinanViewController()
     
 // MARK: - Outlets
     @IBOutlet weak var categoriesTableView: UITableView!
     
 // MARK: - App life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +26,10 @@ class CategoriesViewController: UIViewController {
         categoriesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
         let logoutBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addCategories))
+        logoutBarButtonItem.tintColor = Constants.viewBGColor
         self.navigationItem.rightBarButtonItem  = logoutBarButtonItem
+        
+        print(#function)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +44,10 @@ class CategoriesViewController: UIViewController {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
     }
     
     @objc func addCategories() {

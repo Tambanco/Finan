@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import TagListView
 
 final class FinanViewController: UIViewController {
     
@@ -18,7 +19,6 @@ final class FinanViewController: UIViewController {
     // MARK: - App life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         createCategories()
         createFinanView()
     }
